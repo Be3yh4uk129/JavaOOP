@@ -14,12 +14,13 @@ class Customer extends User {
         System.out.println("Email: " + email);
         System.out.println("Shipping Address: " + shippingAddress);
     }
-    public void placeOrder(Product product, int quantity, String paymentMethod) {
+    public void placeOrder(Product product, int quantity, Payment paymentMethod) {
         if (product.getStock() >= quantity) {
             double totalPrice = product.getPrice() * quantity;
             product.reduceStock(quantity);
             Order order = new Order("Order" + (orders.size() + 1), this, product, quantity, totalPrice, "Placed");
             orders.add(order);
+            paymentMethod.processPayment(totalPrice);
             System.out.println("Order placed successfully");
         }
         else {

@@ -1,7 +1,41 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Admin sanyok = new Admin(007, "Sanchous", "Admin@mail.ru");
+        System.out.println("Welcome to our eShop!");
+        Scanner scanner = new Scanner(System.in);
+        int number;
+        do {
+            System.out.println("\nList");
+            System.out.println("1) Add a new user");
+            System.out.println("2) Sign in");
+            System.out.println("3) Display the products");
+            System.out.println("4) Place an order");
+            System.out.println("5) Display my orders");
+            System.out.println("6) Cancel an order");
+            System.out.println("7) Exit");
+            System.out.print("Enter the number: ");
+
+            number = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (number) {
+                case 1:
+                    System.out.println("Hello! You need to sign up first! \n Enter your name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter the password: ");
+                    String password = scanner.nextLine();
+                    System.out.println("You registered successfully!");
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (number != 7);
+
+    }
+}
+        /*Admin sanyok = new Admin(007, "Sanchous", "Admin@mail.ru");
         Admin valera = new Admin(001, "Valera", "Admin@mail.ru");
         Customer pivnoy = new Customer(1, "Pivko", "ukranianPivko@mail.uk", "Bar pushkina 9/12");
         Customer guy = new Customer(2, "Guyechniy", "kliuch@mail.ru", "masterskaya 6/2");
@@ -32,16 +66,16 @@ public class Main {
         sanyok.addProduct(product10);
 
 
-        pivnoy.placeOrder(product1, 10, "CreditCard");
-        guy.placeOrder(product2, 10, "Paypal");
-        notGuy.placeOrder(product5, 35, "Rassrochka");
-        chill.placeOrder(product10, 47, "PayPal");
-        monkey.placeOrder(product4, 101, "CreditCard");
+        pivnoy.placeOrder(product1, 10, new CreditCardPayment("1234-2424", "Pivko"));
+        guy.placeOrder(product2, 10, new PayPalPayment("alz;das;dl@mail.ru"));
+        notGuy.placeOrder(product5, 35, new PayPalPayment("afdsjfnd2@mail.ru"));
+        chill.placeOrder(product10, 47, new PayPalPayment("jdjdjdj@mail.com"));
+        monkey.placeOrder(product4, 101, new CreditCardPayment("1232-6576", "mok"));
 
         System.out.println(product4.getStock());
-        monkey.placeOrder(product4, 100, "CreditCard");
+        monkey.placeOrder(product4, 100, new CreditCardPayment("7853-8678", "mok"));
         sanyok.updateStock("4", 1);
-        monkey.placeOrder(product4, 100, "CreditCard");
+        monkey.placeOrder(product4, 100, new PayPalPayment("alz;das;dl@mail.ru"));
         System.out.println(product4.getStock());
         valera.removeProduct("7");
 
@@ -73,4 +107,4 @@ public class Main {
         }
     }
 
-}
+}*/
