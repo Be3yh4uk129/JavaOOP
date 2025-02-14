@@ -2,17 +2,14 @@ import java.util.ArrayList;
 
 class Customer extends User {
     ArrayList<Order> orders;
-    String shippingAddress;
-    public Customer(int userId, String name, String email, String shippingAddress) {
-        super(userId, name, email);
+    public Customer(int userId, String password, String email) {
+        super(userId, password, email);
         this.orders = new ArrayList<>();
-        this.shippingAddress = shippingAddress;
     }
     public void displayDetails() {
         System.out.println("Customer Id: " + userId);
-        System.out.println("Name: " + name);
+        System.out.println("password: " + password);
         System.out.println("Email: " + email);
-        System.out.println("Shipping Address: " + shippingAddress);
     }
     public void placeOrder(Product product, int quantity, Payment paymentMethod) {
         if (product.getStock() >= quantity) {

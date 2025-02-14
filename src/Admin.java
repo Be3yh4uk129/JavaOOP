@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 class Admin extends User {
     ArrayList<Product> products;
-    public Admin(int userId, String name, String email) {
-        super(userId, name, email);
+    public Admin(int userId, String password, String email) {
+        super(userId, password, email);
         this.products = new ArrayList<>();
     }
     public void displayDetails() {
-        System.out.println("User id: " + userId + ", name: " + name + ", email: " + email);
+        System.out.println("User id: " + userId + ", password: " + password + ", email: " + email);
     }
     public void addProduct(Product product) {
         products.add(product);
